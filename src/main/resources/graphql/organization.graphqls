@@ -1,0 +1,55 @@
+type Organization {
+    id: ID!
+    fullName: String!
+    inn: String
+    ogrn: String
+    ogrnAssignDate: String
+    managingFirm: ManagingFirm
+    registrationAddress: String
+    factAddress: String
+    settlementAccounts: [SettlementAccount]
+    businessAccounts: [BusinessAccount]
+}
+
+type SettlementAccount {
+    id: ID!
+    accountBank: Organization
+    accountNumber: String
+    caBank: Organization
+    caNumber: String
+    dateFrom: String
+}
+
+type BusinessAccount {
+    id: ID!
+    accountNumber: String
+    settlementAccount: String
+    dateFrom: String
+}
+
+type Query {
+    getOrganizationByInn(inn: String!): Organization
+    getOrganizations: [Organization]
+}
+
+type Mutation {
+    createOrganization(organizationInput: OrganizationInput!) : Organization
+}
+
+input OrganizationInput {
+    fullName: String!
+    inn: String
+    ogrn: String!
+    ogrnAssignDate: String!
+    ogrnAuthority: String!
+    isAuthority: String!
+    isPublicOwnership: String!
+    isPublicPayer: String!
+    legalCapacity: String!
+    isTerminated: String!
+    dateFrom: String!
+}
+
+
+
+

@@ -1,0 +1,4 @@
+type ManagingFirm {
+    partyId: ID!
+    kbk: String!
+}

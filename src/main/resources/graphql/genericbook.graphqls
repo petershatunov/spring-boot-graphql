@@ -1,0 +1,8 @@
+type GenericBook {
+    id: ID!
+    title: String!
+    inn: String
+    isbn: String
+    author: Author
+    pageCount: Int
+}
