@@ -1,10 +1,10 @@
 package com.example.DemoGraphQL;
 
 import com.example.DemoGraphQL.exception.GraphQLErrorAdapter;
-import com.example.DemoGraphQL.repository.*;
+import com.example.DemoGraphQL.repository.AuthorRepository;
+import com.example.DemoGraphQL.repository.BookRepository;
+import com.example.DemoGraphQL.repository.PocketBookrepository;
 import com.example.DemoGraphQL.resolver.BookResolver;
-import com.example.DemoGraphQL.resolver.Mutation;
-import com.example.DemoGraphQL.resolver.Query;
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
@@ -55,16 +55,6 @@ public class DemoGraphQlApplication {
 	@Bean
 	public BookResolver authorResolver(AuthorRepository authorRepository) {
 		return new BookResolver(authorRepository);
-	}
-
-	@Bean
-	public Query query() {
-		return new Query();
-	}
-
-	@Bean
-	public Mutation mutation() {
-		return new Mutation();
 	}
 
 	@Bean

@@ -7,7 +7,9 @@ import com.example.DemoGraphQL.repository.BookRepository;
 import com.example.DemoGraphQL.repository.OrganizationRepository;
 import com.example.DemoGraphQL.repository.PocketBookrepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Query implements GraphQLQueryResolver {
     @Autowired
     private BookRepository bookRepository;
@@ -17,8 +19,6 @@ public class Query implements GraphQLQueryResolver {
     private PocketBookrepository pocketBookrepository;
     @Autowired
     private OrganizationRepository organizationRepository;
-
-    public Query() {}
 
     public Iterable<Book> findAllBooks() {
         return bookRepository.findAll();
