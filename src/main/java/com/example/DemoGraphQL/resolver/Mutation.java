@@ -11,23 +11,21 @@ import com.example.DemoGraphQL.repository.BookRepository;
 import com.example.DemoGraphQL.repository.OrganizationRepository;
 import com.example.DemoGraphQL.repository.PartyRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Date;
 
 @Slf4j
 public class Mutation implements GraphQLMutationResolver {
+    @Autowired
     private BookRepository bookRepository;
+    @Autowired
     private AuthorRepository authorRepository;
+    @Autowired
     private OrganizationRepository organizationRepository;
+    @Autowired
     private PartyRepository partyRepository;
 
-    public Mutation(AuthorRepository authorRepository, BookRepository bookRepository, OrganizationRepository organizationRepository, PartyRepository partyRepository) {
-        this.authorRepository = authorRepository;
-        this.bookRepository = bookRepository;
-        this.organizationRepository = organizationRepository;
-        this.partyRepository = partyRepository;
-    }
+    public Mutation() {}
 
     public Author newAuthor(String firstName, String lastName) {
         Author author = new Author();

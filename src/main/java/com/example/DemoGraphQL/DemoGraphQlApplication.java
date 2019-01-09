@@ -1,9 +1,6 @@
 package com.example.DemoGraphQL;
 
 import com.example.DemoGraphQL.exception.GraphQLErrorAdapter;
-import com.example.DemoGraphQL.model.Author;
-import com.example.DemoGraphQL.model.Book;
-import com.example.DemoGraphQL.model.PocketBook;
 import com.example.DemoGraphQL.repository.*;
 import com.example.DemoGraphQL.resolver.BookResolver;
 import com.example.DemoGraphQL.resolver.Mutation;
@@ -61,13 +58,13 @@ public class DemoGraphQlApplication {
 	}
 
 	@Bean
-	public Query query(AuthorRepository authorRepository, BookRepository bookRepository, PocketBookrepository pocketBookrepository, OrganizationRepository organizationRepository) {
-		return new Query(authorRepository, bookRepository, pocketBookrepository, organizationRepository);
+	public Query query() {
+		return new Query();
 	}
 
 	@Bean
-	public Mutation mutation(AuthorRepository authorRepository, BookRepository bookRepository, OrganizationRepository organizationRepository, PartyRepository partyRepository) {
-		return new Mutation(authorRepository, bookRepository, organizationRepository, partyRepository);
+	public Mutation mutation() {
+		return new Mutation();
 	}
 
 	@Bean

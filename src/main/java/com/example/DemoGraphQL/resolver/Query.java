@@ -6,22 +6,19 @@ import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
 import com.example.DemoGraphQL.repository.OrganizationRepository;
 import com.example.DemoGraphQL.repository.PocketBookrepository;
-
-import java.util.Collections;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Query implements GraphQLQueryResolver {
+    @Autowired
     private BookRepository bookRepository;
+    @Autowired
     private AuthorRepository authorRepository;
+    @Autowired
     private PocketBookrepository pocketBookrepository;
+    @Autowired
     private OrganizationRepository organizationRepository;
 
-    public Query(AuthorRepository authorRepository, BookRepository bookRepository, PocketBookrepository pocketBookrepository, OrganizationRepository organizationRepository) {
-        this.authorRepository = authorRepository;
-        this.bookRepository = bookRepository;
-        this.pocketBookrepository = pocketBookrepository;
-        this.organizationRepository = organizationRepository;
-    }
+    public Query() {}
 
     public Iterable<Book> findAllBooks() {
         return bookRepository.findAll();
